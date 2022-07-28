@@ -120,26 +120,61 @@
 //     }
 // }
 
-let res = '';
-const length = 7;
+// let res = '';
+// const length = 7;
 
-for(let i = 1; i < length; i++) {
-    for(let j = 0; j < i; j++) {
-        res += '$'
-    }
+// for(let i = 1; i < length; i++) {
+//     for(let j = 0; j < i; j++) {
+//         res += '$'
+//     }
 
-    res += '\n'
-}
-console.log(res);
+//     res += '\n'
+// }
+// console.log(res);
 
-first: for (let i = 0; i < 3; i++){
-        console.log(`first level: ${i}`);
-        for(let j = 0; j < 3; j++){
-            console.log(`second level: ${j}`);
-            for(let k = 0; k < 5; k++){
-                if(k == 3) break first;
-                console.log(`third level: ${k}`);
+// first: for (let i = 0; i < 3; i++){
+//         console.log(`first level: ${i}`);
+//         for(let j = 0; j < 3; j++){
+//             console.log(`second level: ${j}`);
+//             for(let k = 0; k < 5; k++){
+//                 if(k == 3) break first;
+//                 console.log(`third level: ${k}`);
                 
-            }
-        }
-    }
+//             }
+//         }
+//     }
+
+//  FUNCTIONS
+// let num = 18;
+
+// function showFirstMessage(text) {
+//     console.log(text);
+// //    let num = 10;
+//    console.log(num);
+// }
+
+// showFirstMessage('Hello World!');
+// console.log(num);
+// function calc (a, b) {
+//     return (a + b)
+// }
+// console.log(calc(4, 6));
+// console.log(calc(5, 5));
+// console.log(calc(7, 3));
+
+// function ret(){
+//     let num = 50;
+//     return num
+// }
+// const anotherNum = ret();
+// console.log(anotherNum);
+// Function Expression
+// const logger = function() {
+//     console.log('Hello!');
+// }
+// logger();
+// () => Стрелочная функция!!
+// const calC = (a, b) => {
+//     console.log('Стрелочная функция!');
+//     return a + b};
+// console.log(calC(13, 6));
