@@ -90,6 +90,36 @@
 // console.log(ivaReport || alexRepo || mariaRepo);
 
 // ЦИКЛЫ
+if (4 == 9) {
+    console.log('ok');
+} else {
+    console.log('error');
+}
+const number = 50;
+if (number < 49) {
+    console.log('Error!');
+} else if (number > 100) {
+    console.log('too much');
+} else {
+    console.log( 'ok!!!');
+}
+const number2 = 50;
+(number2 == 50) ? console.log('ok!!!2') : console.log('ERROr');
+
+const number3 = '51';
+switch (number3) {
+    case '49': 
+        console.log('неверно!');
+        break;
+    case '100':
+        console.log('неверно!');
+        break;
+    case '50':
+        console.log('правильно!');
+        break;
+    default: 
+    console.log('next time');
+}
 // let num = 50;
 
 // while(num < 55) {
