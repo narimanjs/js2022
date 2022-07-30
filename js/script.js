@@ -183,32 +183,49 @@
 // function calc (a, b) {
 //     return (a + b);
 // }
-const usdCurr = 28;
-const discount = 0.8;
+// const usdCurr = 28;
+// const discount = 0.8;
 
-function convert(amount, curr) {
-    return  curr * amount;
+// function convert(amount, curr) {
+//     return  curr * amount;
+// }
+// function promotion(result ) {
+//     console.log(result * discount );
+// }
+// const res = convert(500, usdCurr)
+// promotion(res);
+
+// function test () {
+//     for (let i = 0; i < 5; i ++) {
+//         console.log(i);
+//         if (i === 2) return
+//     }
+//     console.log('done');
+// }
+// test();
+
+// function doNothing() {};
+// console.log(doNothing() === undefined);
+// CallBack
+function first() {
+    setTimeout(function() {
+        console.log(1);
+    }, 500);
 }
-function promotion(result ) {
-    console.log(result * discount );
+
+function second() {
+    console.log(2);
 }
-const res = convert(500, usdCurr)
-promotion(res);
-
-function test () {
-    for (let i = 0; i < 5; i ++) {
-        console.log(i);
-        if (i === 2) return
-    }
-    console.log('done');
+first();
+second();
+function learnJS(lang, callBack) {
+    console.log(`я учу: ${lang}`);
+    callBack();
 }
-test();
-
-function doNothing() {};
-console.log(doNothing() === undefined);
-
-
-
+function done() {
+    console.log('я прошел этот урок!');
+}
+learnJS('JS', done);
 
 // function showFirstMessage(text) {
 //     console.log(text);
