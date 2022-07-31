@@ -206,26 +206,27 @@
 
 // function doNothing() {};
 // console.log(doNothing() === undefined);
-// CallBack
-function first() {
-    setTimeout(function() {
-        console.log(1);
-    }, 500);
-}
 
-function second() {
-    console.log(2);
-}
-first();
-second();
-function learnJS(lang, callBack) {
-    console.log(`я учу: ${lang}`);
-    callBack();
-}
-function done() {
-    console.log('я прошел этот урок!');
-}
-learnJS('JS', done);
+// CallBack
+// function first() {
+//     setTimeout(function() {
+//         console.log(1);
+//     }, 500);
+// }
+
+// function second() {
+//     console.log(2);
+// }
+// first();
+// second();
+// function learnJS(lang, callBack) {
+//     console.log(`я учу: ${lang}`);
+//     callBack();
+// }
+// function done() {
+//     console.log('я прошел этот урок!');
+// }
+// learnJS('JS', done);
 
 // function showFirstMessage(text) {
 //     console.log(text);
@@ -258,3 +259,31 @@ learnJS('JS', done);
 //     console.log('Стрелочная функция!');
 //     return a + b};
 // console.log(calC(13, 6));
+
+// objects
+// let str = 'some';
+// let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+// console.dir([1, 2,3 ]);
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function() {
+        console.log('hello');
+    }
+};
+const john = Object.create(soldier);
+
+// const john = {
+//     health: 120
+// };
+
+// john.__proto__ = soldier;
+
+Object.setPrototypeOf(john, soldier);
+// console.log(john.sayHello);
+john.sayHello();
