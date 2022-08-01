@@ -90,6 +90,36 @@
 // console.log(ivaReport || alexRepo || mariaRepo);
 
 // ЦИКЛЫ
+// if (4 == 9) {
+//     console.log('ok');
+// } else {
+//     console.log('error');
+// }
+// const number = 50;
+// if (number < 49) {
+//     console.log('Error!');
+// } else if (number > 100) {
+//     console.log('too much');
+// } else {
+//     console.log( 'ok!!!');
+// }
+// const number2 = 50;
+// (number2 == 50) ? console.log('ok!!!2') : console.log('ERROr');
+
+// const number3 = '51';
+// switch (number3) {
+//     case '49': 
+//         console.log('неверно!');
+//         break;
+//     case '100':
+//         console.log('неверно!');
+//         break;
+//     case '50':
+//         console.log('правильно!');
+//         break;
+//     default: 
+//     console.log('next time');
+// }
 // let num = 50;
 
 // while(num < 55) {
@@ -147,6 +177,57 @@
 //  FUNCTIONS
 // let num = 18;
 
+// console.log(calc(10, 15));
+// console.log(calc(0, 15));
+// console.log(calc(10, 5));
+// function calc (a, b) {
+//     return (a + b);
+// }
+// const usdCurr = 28;
+// const discount = 0.8;
+
+// function convert(amount, curr) {
+//     return  curr * amount;
+// }
+// function promotion(result ) {
+//     console.log(result * discount );
+// }
+// const res = convert(500, usdCurr)
+// promotion(res);
+
+// function test () {
+//     for (let i = 0; i < 5; i ++) {
+//         console.log(i);
+//         if (i === 2) return
+//     }
+//     console.log('done');
+// }
+// test();
+
+// function doNothing() {};
+// console.log(doNothing() === undefined);
+
+// CallBack
+// function first() {
+//     setTimeout(function() {
+//         console.log(1);
+//     }, 500);
+// }
+
+// function second() {
+//     console.log(2);
+// }
+// first();
+// second();
+// function learnJS(lang, callBack) {
+//     console.log(`я учу: ${lang}`);
+//     callBack();
+// }
+// function done() {
+//     console.log('я прошел этот урок!');
+// }
+// learnJS('JS', done);
+
 // function showFirstMessage(text) {
 //     console.log(text);
 // //    let num = 10;
@@ -178,3 +259,31 @@
 //     console.log('Стрелочная функция!');
 //     return a + b};
 // console.log(calC(13, 6));
+
+// objects
+// let str = 'some';
+// let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+// console.dir([1, 2,3 ]);
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function() {
+        console.log('hello');
+    }
+};
+const john = Object.create(soldier);
+
+// const john = {
+//     health: 120
+// };
+
+// john.__proto__ = soldier;
+
+Object.setPrototypeOf(john, soldier);
+// console.log(john.sayHello);
+john.sayHello();
