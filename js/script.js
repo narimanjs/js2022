@@ -269,21 +269,139 @@
 
 // console.dir([1, 2,3 ]);
 
-const soldier = {
-    health: 400,
-    armor: 100,
-    sayHello: function() {
-        console.log('hello');
-    }
-};
-const john = Object.create(soldier);
-
-// const john = {
-//     health: 120
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: function() {
+//         console.log('hello');
+//     }
 // };
+// const john = Object.create(soldier);
 
-// john.__proto__ = soldier;
+// // const john = {
+// //     health: 120
+// // };
 
-Object.setPrototypeOf(john, soldier);
-// console.log(john.sayHello);
-john.sayHello();
+// // john.__proto__ = soldier;
+
+// Object.setPrototypeOf(john, soldier);
+// // console.log(john.sayHello);
+// john.sayHello();
+
+// // To String
+// // 1)
+// console.log(typeof(String(null)));
+// console.log(typeof(String(1)));
+// // 2)
+// console.log(typeof(null + ''));
+// // 3) 
+// let num = 5;
+// console.log('https://ya.com/catalog' + num);
+
+// // To Number
+// // // 1)
+// // console.log(typeof(Number('4')));
+// // // 2)
+// // console.log(typeof(+'4'));
+// // // 3)
+// // console.log(typeof(parseInt('4px', 10)));
+// // // 
+// // let anw = +prompt('Hello', '');
+
+// // To Boolean
+// // 0, " ", null, undefined, NaN;
+// //1)
+// let switcher = null;
+// if(switcher) {
+//     console.log('Working...');
+// }
+// switcher = 1;
+// if(switcher) {
+//     console.log('Working...');
+// }
+// // 2)
+// console.log(typeof(Boolean('4')));
+// // 3) !!
+// console.log(typeof((!!'444')));
+
+// 
+// let number = 5; debugger
+// function logNumber() {
+//     console.log(number); debugger
+// }
+// number = 6;
+// logNumber(); debugger
+// number = 8;
+// logNumber(); debugger
+// function createCounter() {
+//     let counter = 0;
+//     const myFunction = function() {
+//         counter = counter + 1;
+//         return counter;
+//     }
+//     return myFunction;
+// }
+// const increment = createCounter();
+// const c1 = increment();
+// const c2 = increment();
+// const c3 = increment();
+
+// console.log(c1, c2, c3);
+
+// 2. 42 Полусение элементов
+
+// const box = document.getElementById('box');
+// console.log(box);
+
+// const btns = document.getElementsByTagName('button');
+// console.log(btns[0]);
+// const circles = document.getElementsByClassName('circle');
+// console.log(circles);
+
+// const hearts =document.querySelectorAll('.heart');
+// console.log(hearts);
+// hearts.forEach(item => {
+//     console.log(item);
+// })
+
+// const oneHeart = document.querySelector('.heart');
+// console.log(oneHeart);
+
+
+// hearts[0].replaceWith(circles[0]);
+
+// div.innerHTML = "<h1>hello world!</h1>";
+// // div.textContent = "HI!"
+
+// div.insertAdjacentHTML("beforeend", '<h2>h2</h2>')
+const movieDB = {
+    movies: [
+        "ЛОГАН",
+        "ЛИГА СПРАВЕДЛИВОСТИ",
+        "ЛА-ЛА ЛЭНД",
+        "ОДЕРЖИМОСТЬ",
+        "СКОТТ ПИЛИГРИМ ПРОТИВ..."
+    ]
+}
+
+const adv = document.querySelectorAll('.promo__adv img'),
+      poster = document.querySelector('.promo__bg'),
+      genre = poster.querySelector('.promo__genre'),
+      movieList = document.querySelector('.promo__interactive-list');
+  
+adv.forEach(item => {
+    item.remove();
+});
+
+genre.textContent = 'драма';
+poster.style.backgroundImage = 'url("img/bg.jpg")';
+movieList.innerHTML = "";
+movieDB.movies.sort();
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+    <li class="promo__interactive-item">${i + 1} ${film}
+        <div class="delete"></div>
+    </li>
+    `;
+});
+
