@@ -374,34 +374,69 @@
 // // div.textContent = "HI!"
 
 // div.insertAdjacentHTML("beforeend", '<h2>h2</h2>')
-const movieDB = {
-    movies: [
-        "ЛОГАН",
-        "ЛИГА СПРАВЕДЛИВОСТИ",
-        "ЛА-ЛА ЛЭНД",
-        "ОДЕРЖИМОСТЬ",
-        "СКОТТ ПИЛИГРИМ ПРОТИВ..."
-    ]
-}
 
-const adv = document.querySelectorAll('.promo__adv img'),
-      poster = document.querySelector('.promo__bg'),
-      genre = poster.querySelector('.promo__genre'),
-      movieList = document.querySelector('.promo__interactive-list');
-  
-adv.forEach(item => {
-    item.remove();
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const movieDB = {
+        movies: [
+            "ЛОГАН",
+            "ЛИГА СПРАВЕДЛИВОСТИ",
+            "ЛА-ЛА ЛЭНД",
+            "ОДЕРЖИМОСТЬ",
+            "СКОТТ ПИЛИГРИМ ПРОТИВ..."
+        ]
+    }
+    
+    const adv = document.querySelectorAll('.promo__adv img'),
+          poster = document.querySelector('.promo__bg'),
+          genre = poster.querySelector('.promo__genre'),
+          movieList = document.querySelector('.promo__interactive-list'),
+          addForm = querySelector('form.add'),
+          addInput = addForm.querySelector('.adding__input'),
+          checkbox = addForm.querySelector('[type="checkbox"]');
+    
+    addForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-genre.textContent = 'драма';
-poster.style.backgroundImage = 'url("img/bg.jpg")';
-movieList.innerHTML = "";
-movieDB.movies.sort();
-movieDB.movies.forEach((film, i) => {
-    movieList.innerHTML += `
-    <li class="promo__interactive-item">${i + 1} ${film}
-        <div class="delete"></div>
-    </li>
-    `;
+        const newFilm = addInput.value;
+        const favorite = checkbox.checked;
+
+        movieDB.movies.push(newFilm);
+        sortArr(movieDB.movies);
+
+        createMovieList(movieDB.movies, movieList);
+        event.target.reset();
+
+    });
+      
+    const deleteAdv = (arr) => {
+        arr.forEach(item => {
+            item.remove();
+        });
+    }
+    
+    const makeChanges = () => {
+        genre.textContent = 'драма';
+        poster.style.backgroundImage = 'url("img/bg.jpg")';
+    }
+
+    const sortArr = (arr) => {
+        arr.sort();
+    }
+
+    function createMovieList (films, parent) {
+        parent.innerHTML = "";    
+        films.forEach((film, i) => {
+            parent.innerHTML += `
+            <li class="promo__interactive-item">${i + 1} ${film}
+                <div class="delete"></div>
+            </li>
+        `;
+    });
+    }
+
+    makeChanges();
+    sortArr(movieDB.movies);
+    deleteAdv(adv);
+    createMovieList(movieDB.movies, movieList);
 });
 
