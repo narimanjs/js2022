@@ -390,20 +390,28 @@ document.addEventListener('DOMContentLoaded', () => {
           poster = document.querySelector('.promo__bg'),
           genre = poster.querySelector('.promo__genre'),
           movieList = document.querySelector('.promo__interactive-list'),
-          addForm = querySelector('form.add'),
+          addForm = document.querySelector('form.add'),
           addInput = addForm.querySelector('.adding__input'),
           checkbox = addForm.querySelector('[type="checkbox"]');
     
     addForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const newFilm = addInput.value;
+        let newFilm = addInput.value;
         const favorite = checkbox.checked;
 
-        movieDB.movies.push(newFilm);
-        sortArr(movieDB.movies);
-
-        createMovieList(movieDB.movies, movieList);
+        if (newFilm) {
+            if (newFilm.length > 21) {
+                newFilm = `${newFilm.substring(0, 22)}...`
+            }
+            movieDB.movies.push(newFilm);
+            sortArr(movieDB.movies);
+            createMovieList(movieDB.movies, movieList);
+        }
+        if(favorite) {
+            console.log('добавляем новый фильм!!');
+        }
+       
         event.target.reset();
 
     });
@@ -424,6 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createMovieList (films, parent) {
+        sortArr(films);
         parent.innerHTML = "";    
         films.forEach((film, i) => {
             parent.innerHTML += `
@@ -432,10 +441,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </li>
         `;
     });
+        document.querySelectorAll('.delete').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.remove();
+                movieDB.movies.splice(i, 1);
+                createMovieList(films, parent);
+            })
+        })
     }
 
     makeChanges();
-    sortArr(movieDB.movies);
     deleteAdv(adv);
     createMovieList(movieDB.movies, movieList);
 });
